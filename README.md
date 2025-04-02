@@ -97,3 +97,109 @@ dropout = 0.1            # Dropout比率
 ## 许可证
 
 [MIT](LICENSE)
+
+## 输出例子
+```python
+Model: "Transformer"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓    
+┃ Layer (type)                    ┃ Output Shape            ┃       Param # ┃    
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩    
+│ Input                           │ (batch, seq_len)        │             0 │    
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Embedding (Source)              │ (batch, seq_len, 512) │     2,560,000 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Positional Encoding             │ (batch, seq_len, 512) │             0 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 1                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 2                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 3                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 4                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 5                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Encoder Block 6                 │                         │               │    
+│  ├─Multi-Head Attention         │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Embedding (Target)              │ (batch, seq_len, 512) │     2,560,000 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 1                 │                         │               │    
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 2                 │                         │               │
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 3                 │                         │               │    
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 4                 │                         │               │    
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 5                 │                         │               │    
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+├─────────────────────────────────┼─────────────────────────┼───────────────┤    
+│ Decoder Block 6                 │                         │               │    
+│  ├─Masked Multi-Head Attention  │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Cross Multi-Head Attention   │ (batch, seq_len, 512) │     1,048,576 │      
+│  ├─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│  ├─Feed Forward                 │ (batch, seq_len, 512) │     2,097,152 │      
+│  └─Add & Norm                   │ (batch, seq_len, 512) │           512 │      
+│ Linear Output                   │ (batch, seq_len, 5000) │     2,560,000 │     
+└─────────────────────────────────┴─────────────────────────┴───────────────┘    
+ Total params: 51,735,552 (197.36 MB)
+ Trainable params: 51,735,552 (197.36 MB)
+
+输出形状: torch.Size([2, 8, 5000])
+Transformer模型测试成功！
+```
